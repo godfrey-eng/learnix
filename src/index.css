@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #4f46e5;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    outline-color: #4f46e5;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply mx-auto w-full max-w-[1500px] px-5 py-7 pb-28 sm:px-8 sm:py-9 lg:px-10 lg:pb-10;
+  }
+
+  .page-title {
+    @apply text-[27px] font-extrabold tracking-[-0.04em] text-slate-900 dark:text-white sm:text-[32px];
+  }
+
+  .page-subtitle {
+    @apply mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400;
+  }
+
+  .eyebrow {
+    @apply text-[10px] font-extrabold uppercase tracking-[0.16em] text-indigo-600 dark:text-indigo-400;
+  }
+
+  .section-kicker {
+    @apply text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-400;
+  }
+
+  .section-title {
+    @apply text-base font-bold tracking-tight text-slate-900 dark:text-white;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200/70 bg-white p-5 shadow-[0_4px_18px_rgba(15,23,42,0.035)] dark:border-slate-800 dark:bg-slate-900 sm:p-6;
+  }
+
+  .button {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition active:scale-[0.98];
+  }
+
+  .button-primary {
+    @apply bg-indigo-600 text-white shadow-md shadow-indigo-600/15 hover:bg-indigo-700;
+  }
+
+  .button-secondary {
+    @apply border border-slate-200 bg-white text-slate-700 hover:border-indigo-200 hover:text-indigo-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-indigo-700;
+  }
+
+  .button-ghost {
+    @apply text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800;
+  }
+
+  .icon-button {
+    @apply grid h-10 w-10 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white;
+  }
+
+  .nav-item {
+    @apply flex h-11 w-full items-center gap-3 rounded-xl px-3 text-sm font-semibold text-slate-500 transition hover:bg-slate-50 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-slate-100;
+  }
+
+  .nav-item-active {
+    @apply bg-indigo-50 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300 dark:hover:bg-indigo-950/60 dark:hover:text-indigo-300;
+  }
+
+  .quick-action {
+    @apply flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-slate-100 px-2 text-center text-[11px] font-bold text-slate-600 transition hover:-translate-y-0.5 hover:border-indigo-100 hover:shadow-md dark:border-slate-800 dark:text-slate-300 dark:hover:border-indigo-900;
+  }
+
+  .status {
+    @apply shrink-0 rounded-full px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wide;
+  }
+
+  .status-strong {
+    @apply bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400;
+  }
+
+  .status-needs-review {
+    @apply bg-orange-50 text-orange-700 dark:bg-orange-950/50 dark:text-orange-400;
+  }
+
+  .status-weak {
+    @apply bg-red-50 text-red-700 dark:bg-red-950/50 dark:text-red-400;
+  }
+
+  .search-input {
+    @apply h-12 w-full rounded-xl border border-slate-200 bg-white pl-11 pr-4 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-indigo-600 dark:focus:ring-indigo-950;
+  }
+
+  .tab-button {
+    @apply flex min-w-max items-center gap-2 border-b-2 border-transparent px-4 py-4 text-xs font-bold text-slate-400 transition hover:text-slate-700 dark:hover:text-slate-200;
+  }
+
+  .tab-button-active {
+    @apply border-indigo-600 text-indigo-600 dark:border-indigo-400 dark:text-indigo-400;
+  }
+
+  .mobile-nav-item {
+    @apply relative flex flex-col items-center justify-center gap-1 text-[9px] font-bold text-slate-400 transition;
+  }
+
+  .editor-field {
+    @apply w-full resize-none rounded-xl border border-slate-200 bg-white p-4 text-sm leading-relaxed text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-indigo-600 dark:focus:ring-indigo-950;
+  }
+
+  .flashcard-scene {
+    height: clamp(320px, 48vh, 430px);
+    perspective: 1400px;
+  }
+
+  .flashcard-inner {
+    @apply relative block h-full w-full transition-transform duration-500;
+    transform-style: preserve-3d;
+  }
+
+  .flashcard-scene.is-flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flashcard-face {
+    @apply absolute inset-0 flex flex-col items-center justify-center rounded-3xl border border-slate-200/80 bg-white p-7 text-center shadow-xl shadow-slate-200/40 dark:border-slate-700 dark:bg-slate-900 dark:shadow-none sm:p-12;
+    backface-visibility: hidden;
+  }
+
+  .flashcard-back {
+    @apply border-indigo-200 bg-gradient-to-br from-white to-indigo-50/60 dark:border-indigo-800 dark:from-slate-900 dark:to-indigo-950/30;
+    transform: rotateY(180deg);
+  }
+}
